@@ -1,0 +1,18 @@
+<div class="jumbotron text-center">
+<div class="form-horizontal form-group form-group-lg row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+      {{!-- <input type="text" class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"/> --}}
+      {{input type="email" value=model.email class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
+       <br/><br/>
+      {{textarea class="form-control" placeholder="Your message. (At least 5 characters.)" rows="7" value=model.message}}
+    </div>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+        <button disabled={{model.isNotValid}} {{action 'sendMessage' model}} class="btn btn-primary btn-lg btn-block">Send Message</button>
+    </div>
+  </div>
+  {{#if responseMessage}}
+    <h4>Thank you! Your message is sent.</h4>
+  {{/if}}
+  <br/><br/>
+
+</div>
