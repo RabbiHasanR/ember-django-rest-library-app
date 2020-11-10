@@ -1,0 +1,7 @@
+<select {{on "change" this.change}} class="form-control">
+  {{#each this.libraries as |library|}}
+    <option value={{library.id}} selected={{is-equal library.id this.default.id}}>
+      {{library.name}}
+    </option>
+  {{/each}}
+</select>

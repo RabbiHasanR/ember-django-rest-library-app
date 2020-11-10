@@ -8,23 +8,23 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    firebase: {
-      apiKey: "AIzaSyBKYvkSQ5XsGyjPHolsLtkBXPscyWTvc6I",
-      authDomain: "library-project-477a5.firebaseapp.com",
-      databaseURL: "https://library-project-477a5.firebaseio.com",
-      projectId: "library-project-477a5",
-      storageBucket: "library-project-477a5.appspot.com",
-      messagingSenderId: "242217649023",
-      appId: "1:242217649023:web:ca8ff365caa4443693904a",
-      measurementId: "G-VH20JJJTL8"
-    },
+    // firebase: {
+    //   apiKey: "AIzaSyBKYvkSQ5XsGyjPHolsLtkBXPscyWTvc6I",
+    //   authDomain: "library-project-477a5.firebaseapp.com",
+    //   databaseURL: "https://library-project-477a5.firebaseio.com",
+    //   projectId: "library-project-477a5",
+    //   storageBucket: "library-project-477a5.appspot.com",
+    //   messagingSenderId: "242217649023",
+    //   appId: "1:242217649023:web:ca8ff365caa4443693904a",
+    //   measurementId: "G-VH20JJJTL8"
+    // },
     
-    // if using ember-cli-content-security-policy
-    contentSecurityPolicy: {
-      'script-src': "'self' 'unsafe-eval' apis.google.com",
-      'frame-src': "'self' https://*.firebaseapp.com",
-      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
-    },
+    // // if using ember-cli-content-security-policy
+    // contentSecurityPolicy: {
+    //   'script-src': "'self' 'unsafe-eval' apis.google.com",
+    //   'frame-src': "'self' https://*.firebaseapp.com",
+    //   'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    // },
     
     EmberENV: {
       FEATURES: {
@@ -44,7 +44,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
+    //ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
@@ -65,6 +65,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['ember-faker'] = {
+      enabled: true
+    };
   }
 
   return ENV;

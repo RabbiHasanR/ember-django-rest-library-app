@@ -1,7 +1,13 @@
-import FirestoreAdapter from 'emberfire/adapters/firestore';
+import DS from 'ember-data';
+import { computed } from '@ember/object';
 
-export default FirestoreAdapter.extend({
-    // Uncomment the following lines to enable offline persistence and multi-tab support
-    // enablePersistence: true,
-    // persistenceSettings: { synchronizeTabs: true }
+export default DS.JSONAPIAdapter.extend({
+
+  host: 'http://127.0.0.1:8000',
+
+  namespace: 'api/v1',
+
+  // pathForType(type) {
+  //   return `${type}/`;
+  // }
 });
