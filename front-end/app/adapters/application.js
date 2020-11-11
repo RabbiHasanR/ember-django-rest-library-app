@@ -1,13 +1,18 @@
 import DS from 'ember-data';
-import { computed } from '@ember/object';
 
 export default DS.JSONAPIAdapter.extend({
-
+  
   host: 'http://127.0.0.1:8000',
+
+  headers: {
+    'CONTENT-TYPE': 'application/vnd.api+json',
+    // 'ACCEPT': 'application/vnd.api+json',
+  },
 
   namespace: 'api/v1',
 
-  // pathForType(type) {
-  //   return `${type}/`;
-  // }
+  buildURL: function(type, id, record) {
+    //call the default buildURL and then append a slash
+    return this._super(type, id, record) + '/';
+  }
 });

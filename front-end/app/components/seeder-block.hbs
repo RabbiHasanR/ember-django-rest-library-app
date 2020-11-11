@@ -1,29 +1,29 @@
 <div class="well well-sm extra-padding-bottom">
-  <h3>{{sectionTitle}}</h3>
+  <h3>{{this.sectionTitle}}</h3>
   
   <div class="form-inline">
   
-   <div class="form-group has-feedback {{unless isCounterValid 'has-error'}}">
+   <div class="form-group has-feedback {{unless this.isCounterValid 'has-error'}}">
      <label class="control-label">Number of new records:</label>
-     {{input value=counter class='form-control' placeholder=placeholder}}
+     {{input value=this.counter class='form-control' placeholder=this.placeholder}}
    </div>
   
-   <button class="btn btn-primary" {{action 'generateAction'}} disabled={{generateIsDisabled}}>
-     {{#if generateInProgress}}
+   <button class="btn btn-primary" {{action 'generateAction'}} disabled={{this.generateIsDisabled}}>
+     {{#if this.generateInProgress}}
        <span class="glyphicon glyphicon-refresh spinning"></span> Generating...
      {{else}}
-       Generate {{sectionTitle}}
+       Generate {{this.sectionTitle}}
      {{/if}}
    </button>
-   {{#fader-label isShowing=generateReady}}Created!{{/fader-label}}
+   <FaderLabel @isShowing={{this.generateReady}}>Created!</FaderLabel>
   
-   <button class="btn btn-danger" {{action 'deleteAction'}} disabled={{deleteIsDisabled}}>
-     {{#if deleteInProgress}}
+   <button class="btn btn-danger" {{action 'deleteAction'}} disabled={{this.deleteIsDisabled}}>
+     {{#if this.deleteInProgress}}
        <span class="glyphicon glyphicon-refresh spinning"></span> Deleting...
      {{else}}
-       Delete All {{sectionTitle}}
+       Delete All {{this.sectionTitle}}
      {{/if}}
    </button>
-   {{#fader-label isShowing=deleteReady}}Deleted!{{/fader-label}}
+   <FaderLabel @isShowing={{this.deleteReady}}>Deleted!</FaderLabel>
   </div>
 </div>

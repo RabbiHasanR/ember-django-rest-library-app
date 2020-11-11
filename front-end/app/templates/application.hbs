@@ -1,4 +1,57 @@
-<div class="container">
-  {{nav-bar}}
+<header>
+  <BsNavbar
+          @type="dark"
+          @backgroundColor="dark"
+          @collapsed={{true}}
+          @onCollapse={{fn (mut this.collapsed) true}}
+          @onExpand={{fn (mut this.collapsed) false}} as |navbar|>
+    <div class="container d-flex">
+      <div class="navbar-header">
+        <navbar.toggle/>
+        <LinkTo @route="index" class="navbar-brand">Library App</LinkTo>
+      </div>
+      <navbar.content>
+        <navbar.nav as |nav|>
+          <nav.item>
+            <nav.link-to @route="index">Home</nav.link-to>
+          </nav.item>
+          <nav.item>
+            <nav.link-to @route="libraries">Libraries</nav.link-to>
+          </nav.item>
+          <nav.item>
+            <nav.link-to @route="authors">Authors</nav.link-to>
+          </nav.item>
+          <nav.item>
+            <nav.link-to @route="books">Books</nav.link-to>
+          </nav.item>
+        </navbar.nav>
+        <navbar.nav class="ml-auto" as |nav|>
+          <nav.item>
+            <nav.link-to @route="about">About</nav.link-to>
+          </nav.item>
+          <nav.item>
+            <nav.link-to @route="contact">Contact</nav.link-to>
+          </nav.item>
+          <nav.dropdown as |dd|>
+            <dd.toggle>Admin <span class="caret"></span></dd.toggle>
+            <dd.menu as |ddm|>
+              <ddm.item>
+                <ddm.link-to @route="admin.invitations">Invitations</ddm.link-to>
+              </ddm.item>
+              <ddm.item>
+                <ddm.link-to @route="admin.contacts">Contacts</ddm.link-to>
+              </ddm.item>
+              <ddm.item>
+                <ddm.link-to @route="admin.seeder">Seeder</ddm.link-to>
+              </ddm.item>
+            </dd.menu>
+          </nav.dropdown>
+        </navbar.nav>
+      </navbar.content>
+    </div>
+  </BsNavbar>
+</header>
+
+<main role="main" class="container mt-4">
   {{outlet}}
-</div>
+</main>

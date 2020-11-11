@@ -1,11 +1,6 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
 
 export default Controller.extend({
-
-  // authors: model.authors,
-  // books: model.books,
-  // libraries: model.libraries,
 
   actions: {
     editBook(book) {

@@ -4,7 +4,7 @@ from authors.models import Author
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    release_year = models.DateField()
+    release = models.DateField()
     library = models.ForeignKey(Library, on_delete=models.CASCADE)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

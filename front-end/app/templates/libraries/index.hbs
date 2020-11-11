@@ -1,12 +1,13 @@
-<h2>List</h2>
-<div class="row">
-  {{#each model as |library|}}
-  {{log library.name}}
-    <div class="col-md-4">
-      {{#library-item item=library}}
-        {{#link-to 'libraries.edit' library.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
-        <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>
-      {{/library-item}}
+<hr class="my-3">
+
+<div class="row row-cols-3">
+  {{#each this.model as |library|}}
+    <div class="col mb-2">
+      <LibraryItem @item={{library}} @badge={{library.books.length}}>
+        <LinkTo @route="libraries.edit" @model={{library.id}} class="btn btn-success btn-xs">Edit</LinkTo>
+        <button type="button" class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete
+        </button>
+      </LibraryItem>
     </div>
-  {{/each}}
+    {{/each}}
 </div>

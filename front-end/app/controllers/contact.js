@@ -1,5 +1,4 @@
 import Controller from '@ember/controller';
-import {match, and, gte, not} from '@ember/object/computed'
 
 export default Controller.extend({
     actions: {
